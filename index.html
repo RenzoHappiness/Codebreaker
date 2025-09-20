@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codebreaker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="en">🇺🇸 English</option>
+                <option value="fr">🇫🇷 Français</option>
+            </select>
+        </div>
+        
+        <h1 id="title">🔐 Codebreaker</h1>
+        
+        <div class="instructions">
+            <h3 id="instructionsTitle">Spielanleitung:</h3>
+            <p id="instruction1">• Der Computer schlägt einen 4-stelligen Code vor</p>
+            <p id="instruction2">• Gib an, wie viele rote (richtige Ziffer, falsche Position) und grüne (richtige Ziffer, richtige Position) Treffer du hattest</p>
+            <p id="instruction3">• Klicke "Lösen/Weiter" für den nächsten Vorschlag</p>
+        </div>
+
+        <div class="game-info">
+            <div class="info-item">
+                <div class="info-label" id="redLabel">Rote Treffer</div>
+                <div class="info-value" id="redCount">0</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label" id="greenLabel">Grüne Treffer</div>
+                <div class="info-value" id="greenCount">0</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label" id="roundLabel">Runden</div>
+                <div class="info-value" id="roundCount">0</div>
+            </div>
+        </div>
+
+        <div class="code-display">
+            <label for="codeToEnter" id="codeLabel">Code zum Eingeben:</label>
+            <input type="text" id="codeToEnter" value="1357" readonly>
+        </div>
+
+        <div class="button-section">
+            <div class="button-group">
+                <label id="redButtonsLabel">Rote Treffer:</label>
+                <div class="buttons red-buttons">
+                    <button class="red-button" onclick="setRed(0)" id="red0">0 Rot</button>
+                    <button class="red-button" onclick="setRed(1)" id="red1">1 Rot</button>
+                    <button class="red-button" onclick="setRed(2)" id="red2">2 Rot</button>
+                    <button class="red-button" onclick="setRed(3)" id="red3">3 Rot</button>
+                    <button class="red-button" onclick="setRed(4)" id="red4">4 Rot</button>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <label id="greenButtonsLabel">Grüne Treffer:</label>
+                <div class="buttons green-buttons">
+                    <button class="green-button" onclick="setGreen(0)" id="green0">0 Grün</button>
+                    <button class="green-button" onclick="setGreen(1)" id="green1">1 Grün</button>
+                    <button class="green-button" onclick="setGreen(2)" id="green2">2 Grün</button>
+                    <button class="green-button" onclick="setGreen(3)" id="green3">3 Grün</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="solve-button" onclick="solveNext()" id="solveButton">🔍 Lösen/Weiter</button>
+            <button class="restart-button" onclick="restart()" id="restartButton">🔄 Neustart</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
